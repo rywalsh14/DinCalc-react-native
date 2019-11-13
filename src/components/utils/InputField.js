@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { DETAIL_STYLES, constants } from '../styles/common';
+import { DETAIL_STYLES, constants } from '../../styles/common';
 
 const InputField = ({ numeric, fieldLength, unit, passedStyle }) => {
     const keyboardType = (numeric ? 'numeric' : 'default')

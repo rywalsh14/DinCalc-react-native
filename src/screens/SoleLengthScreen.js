@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import DinButton from '../components/utils/DinButton';
-import HeightDetails from '../components/details/HeightDetails';
+import SoleLengthDetails from '../components/details/SoleLengthDetails';
 
-const HeightScreen = ({ navigation }) => {
-    const nextScreen = 'Weight';
+const SoleLengthScreen = ({ navigation }) => {
+    const nextScreen = 'Start';
 
     return (
         <View style={styles.rootView}>
-            <HeightDetails passedStyle={styles.field} />
+            <SoleLengthDetails passedStyle={styles.field} />
             <DinButton title="Next" pressHandler={() => navigation.navigate(nextScreen)} />
         </View>
     );
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HeightScreen;
+export default SoleLengthScreen;

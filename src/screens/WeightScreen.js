@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import DinButton from '../components/DinButton';
-import WeightDetails from '../components/WeightDetails';
+import DinButton from '../components/utils/DinButton';
+import WeightDetails from '../components/details/WeightDetails';
 
 const WeightScreen = ({ navigation }) => {
-    const nextScreen = 'Start';
+    const nextScreen = 'Age';
 
     return (
         <View style={styles.rootView}>

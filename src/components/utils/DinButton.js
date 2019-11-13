@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { constants } from '../styles/common'
+import { constants } from '../../styles/common'
 
 const DinButton = ({ title, pressHandler, passedStyle }) => {
     return (

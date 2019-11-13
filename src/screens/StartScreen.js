@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { constants } from '../styles/common';
-import DinButton from '../components/DinButton';
+import DinButton from '../components/utils/DinButton';
 
 const StartScreen = ({ navigation }) => {
     const nextScreen = 'Height';

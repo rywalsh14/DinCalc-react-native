@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { DETAIL_STYLES, constants } from '../styles/common';
-import InputField from '../components/InputField';
+import { DETAIL_STYLES, constants } from '../../styles/common';
+import InputField from '../utils/InputField';
 
 const HeightDetails = ({ passedStyle }) => {
     return (
