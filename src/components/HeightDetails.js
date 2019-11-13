@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { DETAIL_STYLES, constants } from '../styles/common';
+import InputField from '../components/InputField';
 
 const HeightDetails = ({ passedStyle }) => {
     return (
         <View style={passedStyle}>
             <Text style={DETAIL_STYLES.label}>Height:</Text>
-            <View style={DETAIL_STYLES.fieldView}>
-                <TextInput
-                    keyboardType="numeric"
-                    maxLength={1}
-                    style={DETAIL_STYLES.textInput}
-                    width={1 * constants.FIELD_CHARACTER_WIDTH}
-                    textAlign="center"
+            <View style={styles.heightInput}>
+                <InputField 
+                    numeric={true}
+                    fieldLength={1}
+                    unit="ft."
                 />
-                <Text style={DETAIL_STYLES.fieldText}> ft. </Text>
-                <TextInput
-                    keyboardType="numeric"
-                    maxLength={2}
-                    style={DETAIL_STYLES.textInput}
-                    width={2 * constants.FIELD_CHARACTER_WIDTH}
-                    textAlign="center"
+                <InputField 
+                    numeric={true}
+                    fieldLength={2}
+                    unit="in."
                 />
-                <Text style={DETAIL_STYLES.fieldText}> in.</Text>
             </View>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    heightInput: {
+        flexDirection: 'row'
+    }
+})
 
 export default HeightDetails;

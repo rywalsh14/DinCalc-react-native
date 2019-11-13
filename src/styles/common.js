@@ -9,10 +9,6 @@ export const DETAIL_STYLES = StyleSheet.create({
     label: {
         fontSize: 36
     },
-    fieldView: {
-        marginTop: 10,
-        flexDirection: 'row',
-    },
     textInput: {
         borderColor: 'black',
         borderWidth: 2,
