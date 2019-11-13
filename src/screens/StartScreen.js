@@ -1,19 +1,19 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-
-const handleBeginButtonPress = (navigation) => {
-    navigation.navigate('Height');
-};
+import { constants } from '../styles/common';
+import DinButton from '../components/DinButton';
 
 const StartScreen = ({ navigation }) => {
+    const nextScreen = 'Height';
+
     return (
         <View style={styles.rootView}>
             <Text style={styles.title}>DinCalc</Text>
-            <TouchableOpacity onPress={() => handleBeginButtonPress(navigation)}>
-                <View style={styles.button}>
-                    <Text style={styles.buttonText}>Begin</Text>
-                </View>
-            </TouchableOpacity>
+            <DinButton 
+                title="Begin"
+                passedStyle={styles.button}
+                pressHandler={() => navigation.navigate(nextScreen)} 
+            />
         </View>
     );
 };
@@ -28,20 +28,7 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     },
     button: {
-
-    },
-    buttonText: {
-        fontSize: 24,
-        fontWeight: '500',
-
-        backgroundColor: '#66ccff',
-        color: 'white',
-
-        paddingVertical: 10,
-        paddingHorizontal: 25,
-
-        borderRadius: 5,
-        overflow: 'hidden'
+        marginTop: 0
     }
 });
 
