@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const radius = 8;
 const borderWeight = 2;
@@ -11,14 +12,6 @@ const validate = (options) => {
     if (options.length < 2) {
         throw `SegmentedControl: Must provide at least 2 options for SegmentedControl. Provided (${options.length})`;
     }
-};
-
-const Segment = ({ value, style }) => {
-    return (
-        <View style={[styles.segment, style]}>
-            <Text style={styles.segmentText}>{value}</Text>
-        </View>
-    );
 };
 
 const getSegmentStyle = (options, index) => {
@@ -35,7 +28,23 @@ const getSegmentStyle = (options, index) => {
     }
 }
 
-const buildSegmentedControl = (options) => {
+const Segment = ({ value, style, pressHandler }) => {
+    return (
+        <TouchableOpacity onPress={() => pressHandler(value)}>
+            <View style={[styles.segment, style]}>
+                <Text style={styles.segmentText}>{value}</Text>
+            </View>
+        </TouchableOpacity>
+    );
+};
+
+const SegmentedControl = ({ options, onSegmentSelect }) => {
+    const pressHandler = (value) => {
+        onSegmentSelect(value);
+    }
+
+    validate(options);
+
     segmentedControl = [];
     for (let i = 0; i < options.length; i++){
         segmentedControl.push(
@@ -43,15 +52,10 @@ const buildSegmentedControl = (options) => {
                 key={i} 
                 value={options[i]}
                 style={getSegmentStyle(options, i)}
+                pressHandler={pressHandler}
             />
         );
     }
-    return segmentedControl;
-};
-
-const SegmentedControl = ({ options }) => {
-    validate(options);
-    segmentedControl = buildSegmentedControl(options);
 
     return (
         <View style={styles.root}>
