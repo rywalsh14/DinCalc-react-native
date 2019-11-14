@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const radius = 8;
 const borderWeight = 2;
+const defaultSegmentFontSize = 72;
 
 const validate = (options) => {
     if (options === undefined) {
@@ -14,36 +15,62 @@ const validate = (options) => {
     }
 };
 
-const getSegmentStyle = (options, index) => {
+const calculateSegmentWidth = (options, segmentFontSize) => {
+    let longest = 0;
+    for (let i = 0; i < options.length; i++){
+        if (options.length > longest){
+            longest = options[i].length;
+        }
+    }
+    return longest * (segmentFontSize / 4);
+};
+
+const getSegmentBorderStyle = (options, index) => {
+    let segmentStyle;
     if (index === 0) {
         // left-most segment
-        return styles.segmentLeft;
+        return commonStyles.segmentLeft;
     }
     else if (index === options.length-1) {
         // right-most segment
-        return styles.segmentRight;
+        return commonStyles.segmentRight;
     }
     else {
-        return styles.segmentMiddle;
+        return commonStyles.segmentMiddle;
     }
-}
+};
 
-const Segment = ({ value, style, pressHandler }) => {
+const Segment = ({ value, pressHandler, style, textStyle }) => {
     return (
         <TouchableOpacity onPress={() => pressHandler(value)}>
-            <View style={[styles.segment, style]}>
-                <Text style={styles.segmentText}>{value}</Text>
+            <View style={style}>
+                <Text style={textStyle}>{value}</Text>
             </View>
         </TouchableOpacity>
     );
 };
 
-const SegmentedControl = ({ options, onSegmentSelect }) => {
+const SegmentedControl = ({ options, onSegmentSelect, fontSize }) => {
     const pressHandler = (value) => {
         onSegmentSelect(value);
     }
 
-    validate(options);
+    const segmentFontSize = (fontSize !== undefined) ? fontSize : defaultSegmentFontSize;
+    const segmentWidth = calculateSegmentWidth(options, segmentFontSize);
+
+    // define styles based on font size
+    const styles = StyleSheet.create({
+        segment: {
+            borderWidth: borderWeight,
+            borderColor: 'black',
+            paddingHorizontal: segmentFontSize/2
+        },
+        segmentText: {
+            fontSize: segmentFontSize,
+            textAlign: 'center',
+            minWidth: segmentWidth
+        }
+    });
 
     segmentedControl = [];
     for (let i = 0; i < options.length; i++){
@@ -51,32 +78,23 @@ const SegmentedControl = ({ options, onSegmentSelect }) => {
             <Segment 
                 key={i} 
                 value={options[i]}
-                style={getSegmentStyle(options, i)}
+                style={[styles.segment, getSegmentBorderStyle(options, i)]}
+                textStyle={styles.segmentText}
                 pressHandler={pressHandler}
             />
         );
     }
 
     return (
-        <View style={styles.root}>
+        <View style={commonStyles.root}>
             {segmentedControl}
         </View>
     );
 };
 
-// IDEA: don't add horizontal padding, set one width for all segments based on widest value! Ex: I,II,III all are different widths right now
-
-const styles = StyleSheet.create({
+const commonStyles = StyleSheet.create({
     root: {
         flexDirection: 'row'
-    },
-    segment: {
-        borderWidth: borderWeight,
-        borderColor: 'black',
-        paddingHorizontal: 30
-    },
-    segmentText: {
-        fontSize: 42
     },
     segmentLeft: {
         borderBottomLeftRadius: radius,
@@ -90,6 +108,6 @@ const styles = StyleSheet.create({
         borderRightWidth: borderWeight/2,
         borderLeftWidth: borderWeight/2
     }
-});
+})
 
 export default SegmentedControl;
