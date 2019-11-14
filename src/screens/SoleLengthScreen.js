@@ -4,7 +4,7 @@ import DinButton from '../components/utils/DinButton';
 import SoleLengthDetails from '../components/details/SoleLengthDetails';
 
 const SoleLengthScreen = ({ navigation }) => {
-    const nextScreen = 'Start';
+    const nextScreen = 'Difficulty';
 
     return (
         <View style={styles.rootView}>

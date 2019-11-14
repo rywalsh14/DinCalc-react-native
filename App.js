@@ -4,14 +4,16 @@ import StartScreen from './src/screens/StartScreen';
 import HeightScreen from './src/screens/HeightScreen'
 import WeightScreen from './src/screens/WeightScreen';
 import AgeScreen from './src/screens/AgeScreen';
-import SoleLengthScreen from './src/components/details/SoleLengthDetails';
+import SoleLengthScreen from './src/screens/SoleLengthScreen';
+import DifficultyScreen from './src/screens/DifficultyScreen';
 
 const navigator = createStackNavigator({
     Start: StartScreen,
     Height: HeightScreen,
     Weight: WeightScreen,
     Age: AgeScreen,
-    SoleLength: SoleLengthScreen
+    SoleLength: SoleLengthScreen,
+    Difficulty: DifficultyScreen
 }, {
     initialRouteName: 'Start',
     defaultNavigationOptions: {
