@@ -64,6 +64,8 @@ const SegmentedControl = ({ options, onSegmentSelect }) => {
     );
 };
 
+// IDEA: don't add horizontal padding, set one width for all segments based on widest value! Ex: I,II,III all are different widths right now
+
 const styles = StyleSheet.create({
     root: {
         flexDirection: 'row'

@@ -13,7 +13,7 @@ const DifficultyScreen = ({ navigation }) => {
     return (
         <View>
             <SegmentedControl 
-                options={['1', '2', '3']}
+                options={['I', 'II', 'III']}
                 onSegmentSelect={segmentSelectHandler}
             />
         </View>
