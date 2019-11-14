@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const radius = 8;
 const borderWeight = 2;
-const defaultSegmentFontSize = 72;
+const defaultSegmentFontSize = 24;
+const mainColor = '#66ccff';
+const secondaryColor = 'white';
 
 const validate = (options) => {
     if (options === undefined) {
@@ -40,10 +42,10 @@ const getSegmentBorderStyle = (options, index) => {
     }
 };
 
-const Segment = ({ value, pressHandler, style, textStyle }) => {
+const Segment = ({ value, pressHandler, viewStyle, textStyle, index }) => {
     return (
-        <TouchableOpacity onPress={() => pressHandler(value)}>
-            <View style={style}>
+        <TouchableOpacity onPress={() => pressHandler(index, value)}>
+            <View style={viewStyle}>
                 <Text style={textStyle}>{value}</Text>
             </View>
         </TouchableOpacity>
@@ -51,35 +53,59 @@ const Segment = ({ value, pressHandler, style, textStyle }) => {
 };
 
 const SegmentedControl = ({ options, onSegmentSelect, fontSize }) => {
-    const pressHandler = (value) => {
+    [selectedSegment, updateSelectedSegment] = useState(null);
+    validate(options);
+
+    const pressHandler = (index, value) => {
+        // visually toggle, then call parent's callback function
+        updateSelectedSegment(index);
         onSegmentSelect(value);
-    }
+    };
 
     const segmentFontSize = (fontSize !== undefined) ? fontSize : defaultSegmentFontSize;
     const segmentWidth = calculateSegmentWidth(options, segmentFontSize);
 
     // define styles based on font size
     const styles = StyleSheet.create({
-        segment: {
+        segmentView: {
             borderWidth: borderWeight,
-            borderColor: 'black',
+            borderColor: mainColor,
             paddingHorizontal: segmentFontSize/2
         },
         segmentText: {
+            color: mainColor,
             fontSize: segmentFontSize,
             textAlign: 'center',
             minWidth: segmentWidth
+        },
+        selectedSegmentView: {
+            backgroundColor: mainColor
+        },
+        selectedSegmentText: {
+            color: secondaryColor
         }
     });
 
     segmentedControl = [];
     for (let i = 0; i < options.length; i++){
+
+        viewStyle = [styles.segmentView, getSegmentBorderStyle(options, i)];
+        textStyle = [styles.segmentText];
+
+        // if this is the selected segment, append additional styling
+        if (i === selectedSegment){
+            viewStyle.push(styles.selectedSegmentView);
+            textStyle.push(styles.selectedSegmentText)
+        }
+
+
         segmentedControl.push(
             <Segment 
                 key={i} 
                 value={options[i]}
-                style={[styles.segment, getSegmentBorderStyle(options, i)]}
-                textStyle={styles.segmentText}
+                viewStyle={viewStyle}
+                textStyle={textStyle}
+                index={i}
                 pressHandler={pressHandler}
             />
         );
