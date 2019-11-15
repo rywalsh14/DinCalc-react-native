@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { DETAIL_STYLES, constants } from '../../styles/common';
+import React from 'react';
+import { View, Text } from 'react-native';
+import { DETAIL_STYLES } from '../../styles/common';
 import InputField from '../utils/InputField';
 
-const AgeDetails = ({ passedStyle }) => {
+const AgeDetails = () => {
     return (
-        <View style={passedStyle}>
-            <Text style={DETAIL_STYLES.label}>Age:</Text>
+        <View>
+            <Text style={DETAIL_STYLES.fieldLabel}>Age:</Text>
             <InputField 
                 numeric={true}
                 fieldLength={3}

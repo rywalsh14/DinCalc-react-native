@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Text } from 'react-native';
 import { DETAIL_STYLES } from '../../styles/common';
 import InputField from '../utils/InputField';
 
-const WeightDetails = ({ passedStyle }) => {
+const WeightDetails = () => {
     return (
-        <View style={passedStyle}>
-            <Text style={DETAIL_STYLES.label}>Weight:</Text>
+        <View>
+            <Text style={DETAIL_STYLES.fieldLabel}>Weight:</Text>
             <InputField 
                 numeric={true}
                 fieldLength={3}

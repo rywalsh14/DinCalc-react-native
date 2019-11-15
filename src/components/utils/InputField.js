@@ -15,7 +15,7 @@ const InputField = ({ numeric, fieldLength, unit, passedStyle }) => {
                     width={fieldLength * constants.FIELD_CHARACTER_WIDTH}
                     textAlign="center"
                 />
-                <Text style={DETAIL_STYLES.fieldText}>{` ${unit}`}</Text>
+                <Text style={DETAIL_STYLES.fieldUnit}>{` ${unit}`}</Text>
             </View>
         </View>
     );

@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import DinButton from '../components/utils/DinButton';
 import SkierTypeDetails from '../components/details/SkierTypeDetails';
+import { SCREEN_STYLES, constants } from '../styles/common';
 
 const SkierTypeScreen = ({ navigation }) => {
     const nextScreen = 'Receipt';
@@ -11,20 +12,11 @@ const SkierTypeScreen = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.rootView}>
-            <SkierTypeDetails passedStyle={styles.field} />
-            <DinButton title="Next" pressHandler={() => navigation.navigate(nextScreen)} />
+        <View style={SCREEN_STYLES.screenRoot}>
+            <SkierTypeDetails color={constants.MAIN_COLOR} />
+            <DinButton title="Fin" pressHandler={() => navigation.navigate(nextScreen)} />
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    rootView: {
-        alignItems: 'center'
-    },
-    field: {
-        marginTop: 50
-    }
-});
 
 export default SkierTypeScreen;

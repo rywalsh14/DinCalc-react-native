@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { DETAIL_STYLES, constants } from '../../styles/common';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { DETAIL_STYLES } from '../../styles/common';
 import InputField from '../utils/InputField';
 
-const HeightDetails = ({ passedStyle }) => {
+const HeightDetails = () => {
     return (
-        <View style={passedStyle}>
-            <Text style={DETAIL_STYLES.label}>Height:</Text>
+        <View>
+            <Text style={DETAIL_STYLES.fieldLabel}>Height:</Text>
             <View style={styles.heightInput}>
                 <InputField 
                     numeric={true}
                     fieldLength={1}
-                    unit="ft."
+                    unit="ft. "
                 />
                 <InputField 
                     numeric={true}
@@ -23,6 +23,7 @@ const HeightDetails = ({ passedStyle }) => {
     );
 };
 
+// special style for the multi-input-field view
 const styles = StyleSheet.create({
     heightInput: {
         flexDirection: 'row'

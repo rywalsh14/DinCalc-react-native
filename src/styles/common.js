@@ -8,25 +8,26 @@ export const constants = {
 }
 
 export const DETAIL_STYLES = StyleSheet.create({
-    label: {
-        fontSize: constants.LABEL_FONT_SIZE
+    fieldLabel: {
+        fontSize: constants.LABEL_FONT_SIZE,
+        color: constants.MAIN_COLOR
     },
     textInput: {
-        borderColor: 'black',
+        borderColor: constants.MAIN_COLOR,
+        color: constants.MAIN_COLOR,
         borderWidth: 2,
         borderRadius: 5,
-        fontSize: INPUT_FONT_SIZE,
+        fontSize: constants.INPUT_FONT_SIZE,
     },
-    fieldText: {
-        fontSize: INPUT_FONT_SIZE
-    },
-    detailRoot: {
-
+    fieldUnit: {
+        fontSize: constants.INPUT_FONT_SIZE,
+        color: constants.MAIN_COLOR
     }
 });
 
 export const SCREEN_STYLES = StyleSheet.create({
     screenRoot: {
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 50
     }
-})
+});
