@@ -5,7 +5,8 @@ import HeightScreen from './src/screens/HeightScreen'
 import WeightScreen from './src/screens/WeightScreen';
 import AgeScreen from './src/screens/AgeScreen';
 import SoleLengthScreen from './src/screens/SoleLengthScreen';
-import DifficultyScreen from './src/screens/DifficultyScreen';
+import SkierTypeScreen from './src/screens/SkierTypeScreen';
+import ReceiptScreen from './src/screens/ReceiptScreen';
 
 const navigator = createStackNavigator({
     Start: StartScreen,
@@ -13,7 +14,8 @@ const navigator = createStackNavigator({
     Weight: WeightScreen,
     Age: AgeScreen,
     SoleLength: SoleLengthScreen,
-    Difficulty: DifficultyScreen
+    SkierType: SkierTypeScreen,
+    Receipt: ReceiptScreen
 }, {
     initialRouteName: 'Start',
     defaultNavigationOptions: {

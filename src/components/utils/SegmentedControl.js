@@ -5,7 +5,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const radius = 8;
 const borderWeight = 2;
 const defaultSegmentFontSize = 24;
-const mainColor = '#66ccff';
 const secondaryColor = 'white';
 
 const validate = (options) => {
@@ -28,7 +27,6 @@ const calculateSegmentWidth = (options, segmentFontSize) => {
 };
 
 const getSegmentBorderStyle = (options, index) => {
-    let segmentStyle;
     if (index === 0) {
         // left-most segment
         return commonStyles.segmentLeft;
@@ -52,7 +50,7 @@ const Segment = ({ value, pressHandler, viewStyle, textStyle, index }) => {
     );
 };
 
-const SegmentedControl = ({ options, onSegmentSelect, fontSize }) => {
+const SegmentedControl = ({ options, onSegmentSelect, fontSize, color }) => {
     [selectedSegment, updateSelectedSegment] = useState(null);
     validate(options);
 
@@ -62,6 +60,7 @@ const SegmentedControl = ({ options, onSegmentSelect, fontSize }) => {
         onSegmentSelect(value);
     };
 
+    const mainColor = (color !== undefined) ? color : 'black';
     const segmentFontSize = (fontSize !== undefined) ? fontSize : defaultSegmentFontSize;
     const segmentWidth = calculateSegmentWidth(options, segmentFontSize);
 

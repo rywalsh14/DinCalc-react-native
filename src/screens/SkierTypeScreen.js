@@ -1,14 +1,18 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import DinButton from '../components/utils/DinButton';
-import SoleLengthDetails from '../components/details/SoleLengthDetails';
+import SkierTypeDetails from '../components/details/SkierTypeDetails';
 
-const SoleLengthScreen = ({ navigation }) => {
-    const nextScreen = 'SkierType';
+const SkierTypeScreen = ({ navigation }) => {
+    const nextScreen = 'Receipt';
+
+    const segmentSelectHandler = (value) => {
+        console.log(`Screen got the value: ${value}`);
+    }
 
     return (
         <View style={styles.rootView}>
-            <SoleLengthDetails passedStyle={styles.field} />
+            <SkierTypeDetails passedStyle={styles.field} />
             <DinButton title="Next" pressHandler={() => navigation.navigate(nextScreen)} />
         </View>
     );
@@ -23,4 +27,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SoleLengthScreen;
+export default SkierTypeScreen;
