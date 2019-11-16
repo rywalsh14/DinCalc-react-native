@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 export const constants = {
-    MAIN_COLOR: '#66ccff',
+    MAIN_COLOR: '#62bcfa',
+    BACKGROUND_COLOR:'#fdf6e3',
     FIELD_CHARACTER_WIDTH: 32,
     LABEL_FONT_SIZE: 36,
     INPUT_FONT_SIZE: 48,
@@ -26,6 +27,10 @@ export const DETAIL_STYLES = StyleSheet.create({
 });
 
 export const SCREEN_STYLES = StyleSheet.create({
+    screenContainer: {
+        backgroundColor: constants.BACKGROUND_COLOR,
+        ...StyleSheet.absoluteFillObject
+    },
     screenRoot: {
         alignItems: 'center',
         marginTop: 50

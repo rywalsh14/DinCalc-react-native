@@ -19,7 +19,7 @@ const navigator = createStackNavigator({
 }, {
     initialRouteName: 'Start',
     defaultNavigationOptions: {
-        title: 'Din Calulator'
+        header: null
     }
 });
 

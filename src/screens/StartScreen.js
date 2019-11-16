@@ -1,34 +1,30 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { constants } from '../styles/common';
+import { View, Text, StyleSheet } from 'react-native';
+import { SCREEN_STYLES } from '../styles/common';
 import DinButton from '../components/utils/DinButton';
+import ScreenContainer from '../components/utils/ScreenContainer';
 
 const StartScreen = ({ navigation }) => {
     const nextScreen = 'Height';
 
     return (
-        <View style={styles.rootView}>
-            <Text style={styles.title}>DinCalc</Text>
-            <DinButton 
-                title="Begin"
-                passedStyle={styles.button}
-                pressHandler={() => navigation.navigate(nextScreen)} 
-            />
-        </View>
+        <ScreenContainer>
+            <View style={SCREEN_STYLES.screenRoot}>
+                <Text style={styles.title}>DinCalc</Text>
+                <DinButton 
+                    title="Begin"
+                    pressHandler={() => navigation.navigate(nextScreen)} 
+                />
+            </View>
+        </ScreenContainer>
     );
 };
 
 const styles = StyleSheet.create({
-    rootView: {
-        alignItems: 'center'
-    },
     title: {
         fontSize: 60,
         fontStyle: 'italic',
         fontWeight: '600'
-    },
-    button: {
-        marginTop: 0
     }
 });
 
