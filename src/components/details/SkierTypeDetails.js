@@ -5,7 +5,7 @@ import SegmentedControl from '../utils/SegmentedControl';
 
 const SkierTypeDetails = ({ color }) => {
     const segmentSelectHandler = (value) => {
-        console.log(`I am THE parent, and I got the value: ${value}`);
+        console.log(`got value: ${value}`);
     }
 
     return (
