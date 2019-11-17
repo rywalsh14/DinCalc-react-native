@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { DETAIL_STYLES, constants } from '../../styles/common';
 
-const InputField = ({ numeric, fieldLength, unit, passedStyle }) => {
+const InputField = ({ value, onChangeText, numeric, fieldLength, unit, passedStyle }) => {
     const keyboardType = (numeric ? 'numeric' : 'default')
 
     return (
         <View style={passedStyle}>
             <View style={styles.inputField}>
                 <TextInput
+                    value={value}
+                    onChangeText={onChangeText}
                     keyboardType={keyboardType}
                     maxLength={fieldLength}
                     style={DETAIL_STYLES.textInput}

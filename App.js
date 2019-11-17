@@ -15,9 +15,9 @@ import rootReducer from './src/redux/reducers';
 let store = createStore(rootReducer);
 
 // connect state to screen components
-let StartScreenComponent = connect(state => ({ count: state.count }))(StartScreen);
-let HeightScreenComponent = connect(state => ({ count: state.count }))(HeightScreen);
-let WeightScreenComponent = connect(state => ({ count: state.count }))(WeightScreen);
+let StartScreenComponent = connect(state => ({ height: state.height }))(StartScreen);
+let HeightScreenComponent = connect(state => ({ height: state.height }))(HeightScreen);
+let WeightScreenComponent = connect(state => ({ height: state.height, weight: state.weight }))(WeightScreen);
 let AgeScreenComponent = connect(state => ({ count: state.count }))(AgeScreen);
 let SoleLengthScreenComponent = connect(state => ({ count: state.count }))(SoleLengthScreen);
 let SkierTypeScreenComponent = connect(state => ({ count: state.count }))(SkierTypeScreen);
