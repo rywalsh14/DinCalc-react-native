@@ -7,7 +7,7 @@ const HeightDetails = () => {
     return (
         <View>
             <Text style={DETAIL_STYLES.fieldLabel}>Height:</Text>
-            <View style={styles.heightInput}>
+            <View style={[DETAIL_STYLES.fieldInputView, styles.heightInput]}>
                 <InputField 
                     numeric={true}
                     fieldLength={1}

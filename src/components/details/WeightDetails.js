@@ -7,11 +7,13 @@ const WeightDetails = () => {
     return (
         <View>
             <Text style={DETAIL_STYLES.fieldLabel}>Weight:</Text>
+            <View style={DETAIL_STYLES.fieldInputView}>
             <InputField 
                 numeric={true}
                 fieldLength={3}
                 unit="lbs."
             />
+            </View>
         </View>
     );
 };

@@ -10,19 +10,13 @@ const BackButton = ({ title, navigation, prevScreen }) => {
     title = `‹ ${title} `
     
     return (
-        <View style={styles.button}>
-            <TouchableOpacity onPress={() => navigation.navigate(prevScreen)}>
-                <Text style={styles.buttonText}>{title}</Text>
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate(prevScreen)}>
+            <Text style={styles.buttonText}>{title}</Text>
+        </TouchableOpacity>
     );
 };
 
 const styles = StyleSheet.create({
-    button: {
-        alignSelf: 'flex-start',
-        marginLeft: 10
-    },
     buttonText: {
         fontSize: 18,
         fontWeight: '500',
@@ -38,4 +32,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default BackButton
+export default BackButton;

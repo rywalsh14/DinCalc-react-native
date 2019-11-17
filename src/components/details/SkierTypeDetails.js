@@ -11,12 +11,14 @@ const SkierTypeDetails = ({ color }) => {
     return (
         <View>
             <Text style={DETAIL_STYLES.fieldLabel}>Skier Type:</Text>
-            <SegmentedControl 
-                options={['I', 'III', 'III']}
-                onSegmentSelect={segmentSelectHandler}
-                fontSize={constants.INPUT_FONT_SIZE}
-                color={color}
-            />
+            <View style={DETAIL_STYLES.fieldInputView}>
+                <SegmentedControl 
+                    options={['I', 'II', 'III']}
+                    onSegmentSelect={segmentSelectHandler}
+                    fontSize={constants.SEGMENT_FONT_SIZE}
+                    color={color}
+                />
+            </View>
         </View>
     );
 };

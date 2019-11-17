@@ -10,21 +10,43 @@ const StartScreen = ({ navigation }) => {
     return (
         <ScreenContainer>
             <View style={SCREEN_STYLES.screenRoot}>
-                <Text style={styles.title}>DinCalc</Text>
-                <DinButton 
-                    title="Begin"
-                    pressHandler={() => navigation.navigate(nextScreen)} 
-                />
+                <View style={styles.header}/>
+                <View style={styles.titleView}>
+                    <Text style={styles.titleText}>DinCalc</Text>
+                </View>
+                <View style={styles.buttonView}>
+                    <DinButton 
+                        title="Begin"
+                        pressHandler={() => navigation.navigate(nextScreen)} 
+                    />
+                </View>
+                <View style={styles.footer}/>
             </View>
         </ScreenContainer>
     );
 };
 
 const styles = StyleSheet.create({
-    title: {
+    titleText: {
         fontSize: 60,
         fontStyle: 'italic',
         fontWeight: '600'
+    },
+    header: {
+        flex: 1
+    },
+    titleView: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    buttonView: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    footer: {
+        flex: 3
     }
 });
 

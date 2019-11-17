@@ -1,10 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
-import DinButton from '../components/utils/DinButton';
 import WeightDetails from '../components/details/WeightDetails';
-import { SCREEN_STYLES } from '../styles/common';
 import ScreenContainer from '../components/utils/ScreenContainer';
-import BackButton from '../components/utils/BackButton';
+import ContentContainer from '../components/utils/ContentContainer';
 
 const WeightScreen = ({ navigation }) => {
     const nextScreen = 'Age';
@@ -12,11 +9,13 @@ const WeightScreen = ({ navigation }) => {
 
     return (
         <ScreenContainer>
-            <View style={SCREEN_STYLES.screenRoot}>
-                <BackButton navigation={navigation} prevScreen={prevScreen}  />
+            <ContentContainer
+                prevScreen={prevScreen}
+                nextScreen={nextScreen}
+                navigation={navigation}
+            >
                 <WeightDetails />
-                <DinButton title="Next" pressHandler={() => navigation.navigate(nextScreen)} />
-            </View>
+            </ContentContainer>
         </ScreenContainer>
     );
 };

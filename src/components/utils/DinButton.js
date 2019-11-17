@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 25,
 
-        borderRadius: 8,
+        borderRadius: 12,
         overflow: 'hidden'
     }
 });

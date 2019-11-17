@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const radius = 8;
+const radius = 15;
 const borderWeight = 2;
 const defaultSegmentFontSize = 24;
 const secondaryColor = 'white';
@@ -75,7 +75,8 @@ const SegmentedControl = ({ options, onSegmentSelect, fontSize, color }) => {
             color: mainColor,
             fontSize: segmentFontSize,
             textAlign: 'center',
-            minWidth: segmentWidth
+            minWidth: segmentWidth,
+            fontWeight: '600'
         },
         selectedSegmentView: {
             backgroundColor: mainColor

@@ -7,11 +7,13 @@ const AgeDetails = () => {
     return (
         <View>
             <Text style={DETAIL_STYLES.fieldLabel}>Age:</Text>
-            <InputField 
-                numeric={true}
-                fieldLength={3}
-                unit="yrs."
-            />
+            <View style={DETAIL_STYLES.fieldInputView}>
+                <InputField 
+                    numeric={true}
+                    fieldLength={3}
+                    unit="yrs."
+                />
+            </View>
         </View>
     );
 };

@@ -1,19 +1,19 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import DinButton from '../components/utils/DinButton';
-import { SCREEN_STYLES } from '../styles/common';
+import { Text } from 'react-native';
 import ScreenContainer from '../components/utils/ScreenContainer';
-import BackButton from '../components/utils/BackButton';
+import ContentContainer from '../components/utils/ContentContainer';
 
 const ReceiptScreen = ({ navigation }) => {
     const prevScreen = 'SkierType';
 
     return (
         <ScreenContainer>
-            <View style={SCREEN_STYLES.screenRoot}>
-                <BackButton navigation={navigation} prevScreen={prevScreen}  />
+            <ContentContainer
+                prevScreen={prevScreen}
+                navigation={navigation}
+            >
                 <Text>Finished!</Text>
-            </View>
+            </ContentContainer>
         </ScreenContainer>
     );
 };

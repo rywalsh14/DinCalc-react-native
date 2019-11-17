@@ -6,12 +6,14 @@ import InputField from '../utils/InputField';
 const SoleLengthDetails = () => {
     return (
         <View>
-            <Text style={DETAIL_STYLES.fieldLabel}>SoleLength:</Text>
-            <InputField 
-                numeric={true}
-                fieldLength={3}
-                unit="mm."
-            />
+            <Text style={DETAIL_STYLES.fieldLabel}>Sole length:</Text>
+            <View style={DETAIL_STYLES.fieldInputView}>
+                <InputField 
+                    numeric={true}
+                    fieldLength={3}
+                    unit="mm."
+                />
+            </View>
         </View>
     );
 };
