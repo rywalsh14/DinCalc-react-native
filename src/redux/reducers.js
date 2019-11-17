@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 
 const heightReducer = (state, action) => {
-    // initial state
     if (typeof state === 'undefined') {
         return {
             feet: '',
@@ -25,6 +24,64 @@ const heightReducer = (state, action) => {
     }
 };
 
-const rootReducer = combineReducers({height: heightReducer});
+const weightReducer = (state, action) => {
+    if (typeof state === 'undefined') {
+        return '';
+    }
+
+    switch(action.type){
+        case 'SET_WEIGHT':
+            return action.payload
+        default:
+            return state;
+    }
+};
+
+const ageReducer = (state, action) => {
+    if (typeof state === 'undefined') {
+        return '';
+    }
+
+    switch(action.type){
+        case 'SET_AGE':
+            return action.payload
+        default:
+            return state;
+    }
+};
+
+const soleLengthReducer = (state, action) => {
+    if (typeof state === 'undefined') {
+        return '';
+    }
+
+    switch(action.type){
+        case 'SET_SOLE_LENGTH':
+            return action.payload
+        default:
+            return state;
+    }
+};
+
+const skierTypeReducer = (state, action) => {
+    if (typeof state === 'undefined') {
+        return '';
+    }
+
+    switch(action.type){
+        case 'SET_SKIER_TYPE':
+            return action.payload
+        default:
+            return state;
+    }
+};
+
+const rootReducer = combineReducers({
+    height: heightReducer,
+    weight: weightReducer,
+    age: ageReducer,
+    soleLength: soleLengthReducer,
+    skierType: skierTypeReducer
+});
 
 export default rootReducer;

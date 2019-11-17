@@ -11,3 +11,31 @@ export const setHeightInches = (heightInches) => {
         payload: heightInches
     }
 };
+
+export const setWeight = (weight) => {
+    return {
+        type: 'SET_WEIGHT',
+        payload: weight
+    }
+};
+
+export const setAge = (age) => {
+    return {
+        type: 'SET_AGE',
+        payload: age
+    }
+};
+
+export const setSoleLength = (soleLength) => {
+    return {
+        type: 'SET_SOLE_LENGTH',
+        payload: soleLength
+    }
+};
+
+export const setSkierType = (skierType) => {
+    return {
+        type: 'SET_SKIER_TYPE',
+        payload: skierType
+    }
+};

@@ -2,8 +2,9 @@ import React from 'react';
 import SoleLengthDetails from '../components/details/SoleLengthDetails';
 import ScreenContainer from '../components/utils/ScreenContainer';
 import ContentContainer from '../components/utils/ContentContainer';
+import { setSoleLength } from '../redux/actions';
 
-const SoleLengthScreen = ({ navigation }) => {
+const SoleLengthScreen = ({ soleLength, dispatch, navigation }) => {
     const nextScreen = 'SkierType';
     const prevScreen = 'Age';
 
@@ -14,7 +15,10 @@ const SoleLengthScreen = ({ navigation }) => {
                 nextScreen={nextScreen}
                 navigation={navigation}
             >
-                <SoleLengthDetails />
+                <SoleLengthDetails
+                    soleLength={soleLength}
+                    onChangeSoleLength={(newValue) => dispatch(setSoleLength(newValue))}
+                />
             </ContentContainer>
         </ScreenContainer>
     );
