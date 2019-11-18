@@ -18,8 +18,8 @@ let store = createStore(rootReducer);
 let HeightScreenComponent = connect(state => ({ height: state.height }))(HeightScreen);
 let WeightScreenComponent = connect(state => ({ weight: state.weight }))(WeightScreen);
 let AgeScreenComponent = connect(state => ({ age: state.age }))(AgeScreen);
-let SoleLengthScreenComponent = connect(state => ({ count: state.soleLength }))(SoleLengthScreen);
-let SkierTypeScreenComponent = connect(state => ({ count: state.skierType }))(SkierTypeScreen);
+let SoleLengthScreenComponent = connect(state => ({ soleLength: state.soleLength }))(SoleLengthScreen);
+let SkierTypeScreenComponent = connect(state => ({ skierType: state.skierType }))(SkierTypeScreen);
 let ReceiptScreenComponent = connect(state => ({ 
     height: state.height,
     weight: state.weight,

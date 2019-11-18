@@ -50,14 +50,14 @@ const Segment = ({ value, pressHandler, viewStyle, textStyle, index }) => {
     );
 };
 
-const SegmentedControl = ({ options, onSegmentSelect, fontSize, color }) => {
-    [selectedSegment, updateSelectedSegment] = useState(null);
+const SegmentedControl = ({ selectedIndex, options, onSegmentSelect, fontSize, color }) => {
+    [selectedSegment, updateSelectedSegment] = useState(selectedIndex);
     validate(options);
 
     const pressHandler = (index, value) => {
         // visually toggle, then call parent's callback function
         updateSelectedSegment(index);
-        onSegmentSelect(value);
+        onSegmentSelect(index, value);
     };
 
     const mainColor = (color !== undefined) ? color : 'black';

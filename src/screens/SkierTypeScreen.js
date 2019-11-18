@@ -5,7 +5,7 @@ import ScreenContainer from '../components/utils/ScreenContainer';
 import ContentContainer from '../components/utils/ContentContainer';
 import { setSkierType } from '../redux/actions';
 
-const SkierTypeScreen = ({ navigation, dispatch }) => {
+const SkierTypeScreen = ({ skierType, dispatch, navigation }) => {
     const nextScreen = 'Receipt';
     const prevScreen = 'SoleLength';
 
@@ -17,7 +17,8 @@ const SkierTypeScreen = ({ navigation, dispatch }) => {
                 navigation={navigation}
             >
                 <SkierTypeDetails
-                    onChangeSkierType={(newValue) => dispatch(setSkierType(newValue))}
+                    skierType={skierType}
+                    onChangeSkierType={(newIndex, newValue) => dispatch(setSkierType(newIndex, newValue))}
                     color={constants.MAIN_COLOR}
                 />
             </ContentContainer>

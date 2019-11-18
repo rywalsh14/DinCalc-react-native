@@ -1,23 +1,33 @@
 import React from 'react';
-import { Text } from 'react-native';
 import ScreenContainer from '../components/utils/ScreenContainer';
 import ContentContainer from '../components/utils/ContentContainer';
+import calculateDin from '../non_react_js/DinCalculator';
+import ReceiptDetails from '../components/details/ReceiptDetails';
+import {Text} from 'react-native'
+
 
 const ReceiptScreen = ({ height, weight, age, soleLength, skierType, navigation }) => {
     const prevScreen = 'SkierType';
+
+    din = calculateDin(height, weight, age, soleLength, skierType);
+
+    console.log(`din: ${din.rowLetter} - ${din.value}`);
 
     return (
         <ScreenContainer>
             <ContentContainer
                 prevScreen={prevScreen}
                 navigation={navigation}
+                isReceiptScreen={true}
             >
-                <Text>Finished!</Text>
-                <Text>{`Height: ${height.feet}'${height.inches}`}</Text>
-                <Text>{`Weight: ${weight} lbs.`}</Text>
-                <Text>{`Age: ${age} yrs.`}</Text>
-                <Text>{`Sole Length: ${soleLength}`}</Text>
-                <Text>{`Skier Type: ${skierType}`}</Text>
+                <ReceiptDetails
+                    height={height}
+                    weight={weight}
+                    age={age}
+                    soleLength={soleLength}
+                    skierType={skierType}
+                    din={din}
+                />
             </ContentContainer>
         </ScreenContainer>
     );

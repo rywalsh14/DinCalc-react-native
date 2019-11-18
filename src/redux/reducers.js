@@ -65,7 +65,10 @@ const soleLengthReducer = (state, action) => {
 
 const skierTypeReducer = (state, action) => {
     if (typeof state === 'undefined') {
-        return '';
+        return {
+            index: -1,
+            skierType: ''
+        };
     }
 
     switch(action.type){

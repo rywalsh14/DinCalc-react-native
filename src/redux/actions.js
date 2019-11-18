@@ -33,9 +33,12 @@ export const setSoleLength = (soleLength) => {
     }
 };
 
-export const setSkierType = (skierType) => {
+export const setSkierType = (segmentIndex, skierType) => {
     return {
         type: 'SET_SKIER_TYPE',
-        payload: skierType
+        payload: {
+            index: segmentIndex,
+            value: skierType
+        }
     }
 };

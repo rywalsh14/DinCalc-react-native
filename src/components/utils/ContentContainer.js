@@ -4,7 +4,7 @@ import { SCREEN_STYLES } from '../../styles/common';
 import BackButton from './BackButton';
 import DinButton from './DinButton';
 
-const ContentContainer = ({ prevScreen, nextScreen, navigation, children }) => {
+const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isReceiptScreen }) => {
     const renderBackButton = () => {
         if (prevScreen) {
             return (
@@ -21,19 +21,26 @@ const ContentContainer = ({ prevScreen, nextScreen, navigation, children }) => {
         }
     };
 
+    let contentStyle = styles.contentView;
+    let footerStyle = styles.footer;
+    if (isReceiptScreen) {
+        contentStyle = styles.receiptContentView;
+        footerStyle = styles.receiptFooter;
+    }
+
     return(
         <View style={SCREEN_STYLES.screenRoot}>
             <View style={styles.header}/>
             <View style={styles.backButtonView}>
                 {renderBackButton()}
             </View>
-            <View style={styles.contentView}>
+            <View style={contentStyle}>
                 {children}
             </View>
             <View style={styles.nextButtonView}>
                 {renderNextButton()}
             </View>
-            <View style={styles.footer}/>
+            <View style={footerStyle}/>
         </View>
     );
 };
@@ -52,13 +59,20 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
+    receiptContentView: {
+        flex: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
     nextButtonView: {
         flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center'
+        justifyContent: 'center',
     },
     footer: {
         flex: 7
+    }, 
+    receiptFooter: {
+        flex: 0
     }
 });
 
