@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const constants = {
     MAIN_COLOR: '#62bcfa',
     BACKGROUND_COLOR:'#fdf6e3',
-    FIELD_CHARACTER_WIDTH: 32,
+    FIELD_CHARACTER_WIDTH: 48,
     LABEL_FONT_SIZE: 36,
     INPUT_FONT_SIZE: 64,
     SEGMENT_FONT_SIZE: 62
