@@ -19,6 +19,11 @@ const heightReducer = (state, action) => {
                 ...state,
                 inches: action.payload
             };
+        case 'CLEAR_ALL_VALUES':
+            return {
+                feet: '',
+                inches: ''
+            };
         default:
             return state;
     }
@@ -31,7 +36,9 @@ const weightReducer = (state, action) => {
 
     switch(action.type){
         case 'SET_WEIGHT':
-            return action.payload
+            return action.payload;
+        case 'CLEAR_ALL_VALUES':
+            return '';
         default:
             return state;
     }
@@ -44,7 +51,9 @@ const ageReducer = (state, action) => {
 
     switch(action.type){
         case 'SET_AGE':
-            return action.payload
+            return action.payload;
+        case 'CLEAR_ALL_VALUES':
+            return '';
         default:
             return state;
     }
@@ -57,7 +66,9 @@ const soleLengthReducer = (state, action) => {
 
     switch(action.type){
         case 'SET_SOLE_LENGTH':
-            return action.payload
+            return action.payload;
+        case 'CLEAR_ALL_VALUES':
+            return '';
         default:
             return state;
     }
@@ -73,7 +84,12 @@ const skierTypeReducer = (state, action) => {
 
     switch(action.type){
         case 'SET_SKIER_TYPE':
-            return action.payload
+            return action.payload;
+        case 'CLEAR_ALL_VALUES':
+            return {
+                index: -1,
+                skierType: ''
+            };
         default:
             return state;
     }

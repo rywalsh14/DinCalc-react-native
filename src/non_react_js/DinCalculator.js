@@ -141,6 +141,15 @@ const calculateDin = (
     const column = getColumn(soleLength);
     let row = Math.min(getHeightRow(height.feet, height.inches), getWeightRow(weight));
 
+
+    // TODO: Better error checking/responses
+    if (row == -1 || column == -1) {
+        return {
+            value: 'error',
+            rowLetter: 'invalid input'
+        }
+    }
+
     row = adjustRowForAge(age, row);
     row = adjustRowForSkierType(skierType.value, row)
 

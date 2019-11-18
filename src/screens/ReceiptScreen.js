@@ -3,10 +3,8 @@ import ScreenContainer from '../components/utils/ScreenContainer';
 import ContentContainer from '../components/utils/ContentContainer';
 import calculateDin from '../non_react_js/DinCalculator';
 import ReceiptDetails from '../components/details/ReceiptDetails';
-import {Text} from 'react-native'
 
-
-const ReceiptScreen = ({ height, weight, age, soleLength, skierType, navigation }) => {
+const ReceiptScreen = ({ height, weight, age, soleLength, skierType, navigation, dispatch }) => {
     const prevScreen = 'SkierType';
     const din = calculateDin(height, weight, age, soleLength, skierType);
 
@@ -24,6 +22,7 @@ const ReceiptScreen = ({ height, weight, age, soleLength, skierType, navigation 
                     soleLength={soleLength}
                     skierType={skierType}
                     din={din}
+                    dispatch={dispatch}
                     navigation={navigation}
                 />
             </ContentContainer>

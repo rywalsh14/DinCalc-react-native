@@ -13,7 +13,7 @@ const SummaryItem = ({ label, value }) => {
     );
 };
 
-const ReceiptDetails = ({height, weight, age, soleLength, skierType, din, navigation}) => {
+const ReceiptDetails = ({height, weight, age, soleLength, skierType, din, dispatch, navigation}) => {
     const heightString = `${height.feet}' ${height.inches}"`;
     const weightString = `${weight} lbs.`;
     const ageString = `${age} yrs.`;
@@ -39,6 +39,7 @@ const ReceiptDetails = ({height, weight, age, soleLength, skierType, din, naviga
             </View>
             <View style={styles.restartButtonView}>
                 <RestartButton
+                    dispatch={dispatch}
                     navigation={navigation}
                 />
             </View>
