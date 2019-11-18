@@ -8,10 +8,7 @@ import {Text} from 'react-native'
 
 const ReceiptScreen = ({ height, weight, age, soleLength, skierType, navigation }) => {
     const prevScreen = 'SkierType';
-
-    din = calculateDin(height, weight, age, soleLength, skierType);
-
-    console.log(`din: ${din.rowLetter} - ${din.value}`);
+    const din = calculateDin(height, weight, age, soleLength, skierType);
 
     return (
         <ScreenContainer>
