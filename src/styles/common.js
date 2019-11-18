@@ -43,3 +43,19 @@ export const SCREEN_STYLES = StyleSheet.create({
         ...StyleSheet.absoluteFillObject
     }
 });
+
+export const ROUND_BUTTON_STYLES = StyleSheet.create({
+    buttonText: {
+        fontSize: 18,
+        fontWeight: '500',
+
+        backgroundColor: constants.MAIN_COLOR,
+        color: constants.BACKGROUND_COLOR,
+
+        paddingVertical: 8,
+        paddingHorizontal: 15,
+
+        borderRadius: 18,
+        overflow: 'hidden'
+    }
+});

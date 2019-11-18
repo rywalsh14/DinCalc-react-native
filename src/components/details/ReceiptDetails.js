@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { constants } from '../../styles/common';
+import RestartButton from '../utils/RestartButton';
 
 const SummaryItem = ({ label, value }) => {
     label = `${label}:`
@@ -12,7 +13,7 @@ const SummaryItem = ({ label, value }) => {
     );
 };
 
-const ReceiptDetails = ({height, weight, age, soleLength, skierType, din}) => {
+const ReceiptDetails = ({height, weight, age, soleLength, skierType, din, navigation}) => {
     const heightString = `${height.feet}' ${height.inches}"`;
     const weightString = `${weight} lbs.`;
     const ageString = `${age} yrs.`;
@@ -23,7 +24,7 @@ const ReceiptDetails = ({height, weight, age, soleLength, skierType, din}) => {
     return (
         <View style={styles.mainView}>
             <View style={styles.summaryView}>
-                <Text style={styles.summaryTitle}>Summary:</Text>
+                <Text style={styles.title}>Summary:</Text>
                 <View style={styles.summaryItemsView}>
                     <SummaryItem label="Height" value={heightString} />
                     <SummaryItem label="Weight" value={weightString} />
@@ -32,17 +33,22 @@ const ReceiptDetails = ({height, weight, age, soleLength, skierType, din}) => {
                     <SummaryItem label="Skier type" value={skierTypeString} />
                 </View>
             </View>
-            <View style={styles.dinView}>
-                <Text style={styles.summaryTitle}>Din:</Text>
+            <View style={styles.title}>
+                <Text style={styles.title}>Din:</Text>
                 <Text style={styles.dinValue}>{dinString}</Text>
+            </View>
+            <View style={styles.restartButtonView}>
+                <RestartButton
+                    navigation={navigation}
+                />
             </View>
         </View>
     );
 };
 
 styles = StyleSheet.create({
-    summaryTitle: {
-        fontSize: 28,
+    title: {
+        fontSize: 36,
         fontWeight: '700',
         fontStyle: 'italic',
         alignSelf: 'center'
@@ -76,6 +82,12 @@ styles = StyleSheet.create({
         fontSize: 64,
         fontWeight: '600',
         color: constants.MAIN_COLOR
+    },
+    restartButtonView: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        justifyContent: 'center'
     }
 });
 

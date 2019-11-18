@@ -24,6 +24,7 @@ const ReceiptScreen = ({ height, weight, age, soleLength, skierType, navigation 
                     soleLength={soleLength}
                     skierType={skierType}
                     din={din}
+                    navigation={navigation}
                 />
             </ContentContainer>
         </ScreenContainer>
