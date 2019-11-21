@@ -37,8 +37,8 @@ const getLargeButtonPadding = () => {
     }
     else {
         return {
-            vertical: 5,
-            horizontal: 10
+            vertical: 8,
+            horizontal: 15
         };
     }
 };
