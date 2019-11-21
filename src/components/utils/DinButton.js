@@ -14,14 +14,14 @@ const DinButton = ({ title, pressHandler, passedStyle }) => {
 
 const styles = StyleSheet.create({
     buttonText: {
-        fontSize: 24,
+        fontSize: constants.FONT_SIZE.large_button,
         fontWeight: '500',
 
         backgroundColor: constants.MAIN_COLOR,
         color: constants.BACKGROUND_COLOR,
 
-        paddingVertical: 10,
-        paddingHorizontal: 25,
+        paddingVertical: constants.LARGE_BUTTON_PADDING.vertical,
+        paddingHorizontal: constants.LARGE_BUTTON_PADDING.horizontal,
 
         borderRadius: 12,
         overflow: 'hidden'

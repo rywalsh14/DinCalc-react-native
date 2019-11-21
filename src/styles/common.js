@@ -1,17 +1,68 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const dimensions = Dimensions.get('window');
+const isLargeScreen = dimensions.width > 350;
+
+const getFontSizes = () => {
+    if (isLargeScreen){
+        return {
+            primary: 64,
+            secondary: 36,
+            segment: 62,
+            large_button: 24,
+            small_button: 18
+        }
+    }
+    else {
+        return {
+            primary: 56,
+            secondary: 28,
+            segment: 54,
+            large_button: 18,
+            small_button: 14
+        }
+    }
+};
+
+const getCharWidth = () => {
+    return isLargeScreen ? 48 : 40;
+};
+
+const getLargeButtonPadding = () => {
+    if (isLargeScreen) {
+        return {
+            vertical: 10,
+            horizontal: 25
+        };
+    }
+    else {
+        return {
+            vertical: 5,
+            horizontal: 10
+        };
+    }
+};
+
+getSmallButtonRadius = () => {
+    if (isLargeScreen) {
+        return 18;
+    }
+    else {
+        return  16;
+    }
+};
 
 export const constants = {
     MAIN_COLOR: '#62bcfa',
     BACKGROUND_COLOR:'#fdf6e3',
-    FIELD_CHARACTER_WIDTH: 48,
-    LABEL_FONT_SIZE: 36,
-    INPUT_FONT_SIZE: 64,
-    SEGMENT_FONT_SIZE: 62
-}
+    FIELD_CHARACTER_WIDTH: getCharWidth(),
+    FONT_SIZE: getFontSizes(),
+    LARGE_BUTTON_PADDING: getLargeButtonPadding()
+};
 
 export const DETAIL_STYLES = StyleSheet.create({
     fieldLabel: {
-        fontSize: constants.LABEL_FONT_SIZE,
+        fontSize: constants.FONT_SIZE.secondary,
         fontWeight: "400",
         color: constants.MAIN_COLOR,
         marginLeft: 10
@@ -24,10 +75,10 @@ export const DETAIL_STYLES = StyleSheet.create({
         color: constants.MAIN_COLOR,
         borderWidth: 2,
         borderRadius: 5,
-        fontSize: constants.INPUT_FONT_SIZE,
+        fontSize: constants.FONT_SIZE.primary,
     },
     fieldUnit: {
-        fontSize: constants.INPUT_FONT_SIZE,
+        fontSize: constants.FONT_SIZE.primary,
         fontWeight: "500",
         color: constants.MAIN_COLOR
     }
@@ -46,7 +97,7 @@ export const SCREEN_STYLES = StyleSheet.create({
 
 export const ROUND_BUTTON_STYLES = StyleSheet.create({
     buttonText: {
-        fontSize: 18,
+        fontSize: constants.FONT_SIZE.small_button,
         fontWeight: '500',
 
         backgroundColor: constants.MAIN_COLOR,
@@ -55,7 +106,7 @@ export const ROUND_BUTTON_STYLES = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 15,
 
-        borderRadius: 18,
+        borderRadius: getSmallButtonRadius(),
         overflow: 'hidden'
     }
 });
