@@ -33,7 +33,7 @@ const ReceiptDetails = ({height, weight, age, soleLength, skierType, din, dispat
                     <SummaryItem label="Skier type" value={skierTypeString} />
                 </View>
             </View>
-            <View style={styles.title}>
+            <View style={styles.titleView}>
                 <Text style={styles.title}>Din:</Text>
                 <Text style={styles.dinValue}>{dinString}</Text>
             </View>
@@ -47,9 +47,11 @@ const ReceiptDetails = ({height, weight, age, soleLength, skierType, din, dispat
     );
 };
 
+const row_gap = 20
+
 styles = StyleSheet.create({
     title: {
-        fontSize: 36,
+        fontSize: constants.FONT_SIZE.secondary,
         fontWeight: '700',
         fontStyle: 'italic',
         alignSelf: 'center'
@@ -59,11 +61,12 @@ styles = StyleSheet.create({
     },
     summaryValue: {
         color: constants.MAIN_COLOR,
-        fontSize: 36,
+        fontSize: constants.FONT_SIZE.secondary,
         fontWeight: '500'
     },
     summaryItem: {
-        marginTop: 5
+        marginTop: 5,
+        marginLeft: row_gap
     },
     mainView: {
         flex: 1,
@@ -72,7 +75,8 @@ styles = StyleSheet.create({
     },
     summaryItemsView: {
         marginTop: 10,
-        marginHorizontal: 50
+        marginHorizontal: 50 - row_gap,
+        flexWrap: 'wrap'
     },
     dinView: {
         marginTop: 20,
@@ -80,9 +84,16 @@ styles = StyleSheet.create({
     },
     dinValue: {
         marginTop: 10,
-        fontSize: 64,
+        fontSize: constants.FONT_SIZE.primary,
         fontWeight: '600',
         color: constants.MAIN_COLOR
+    },
+    summaryView: {
+        flex: 5
+    },
+    titleView: {
+        flex: 3,
+        alignItems: 'center'
     },
     restartButtonView: {
         flex: 1,

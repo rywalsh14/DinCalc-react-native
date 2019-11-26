@@ -12,7 +12,7 @@ const SkierTypeDetails = ({ skierType, onChangeSkierType, color }) => {
                     selectedIndex={skierType.index}
                     options={['I', 'II', 'III']}
                     onSegmentSelect={onChangeSkierType}
-                    fontSize={constants.SEGMENT_FONT_SIZE}
+                    fontSize={constants.FONT_SIZE.segment}
                     color={color}
                 />
             </View>
