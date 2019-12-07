@@ -16,9 +16,7 @@ const HeightScreen = ({ navigation, height, dispatch }) => {
                 prevScreen={prevScreen}
                 nextScreen={nextScreen}
                 navigation={navigation}
-                validator={() => {
-                    return validate(height, heightConstraints, {fullMessages: false})
-                }}
+                validator={() => validate(height, heightConstraints, {fullMessages: false})}
             >
                 <HeightDetails
                     height={height}

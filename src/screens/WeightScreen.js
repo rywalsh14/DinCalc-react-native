@@ -3,6 +3,8 @@ import WeightDetails from '../components/details/WeightDetails';
 import ScreenContainer from '../components/utils/ScreenContainer';
 import ContentContainer from '../components/utils/ContentContainer';
 import { setWeight } from '../redux/actions';
+import validate from 'validate.js';
+import { weightConstraints } from '../non_react_js/validation';
 
 const WeightScreen = ({ navigation, weight, dispatch }) => {
     const nextScreen = 'Age';
@@ -14,6 +16,7 @@ const WeightScreen = ({ navigation, weight, dispatch }) => {
                 prevScreen={prevScreen}
                 nextScreen={nextScreen}
                 navigation={navigation}
+                validator={() => validate({weight: weight}, weightConstraints, {fullMessages: false})}
             >
                 <WeightDetails
                     weight={weight}

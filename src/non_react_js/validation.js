@@ -25,9 +25,11 @@ export const heightConstraints = {
 };
 
 export const weightConstraints = {
-    presence: true,
-    format: {
-        pattern: NUMERICAL_REGEX,
-        message: (value, attribute) => {return getMessage(attribute, value)}
+    weight: {
+        presence: true,
+        format: {
+            pattern: NUMERICAL_REGEX,
+            message: (value, attribute) => {return getMessage(attribute, value)}
+        }
     }
 }
