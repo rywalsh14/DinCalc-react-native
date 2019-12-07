@@ -4,7 +4,26 @@ import { SCREEN_STYLES } from '../../styles/common';
 import BackButton from './BackButton';
 import DinButton from './DinButton';
 
-const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isReceiptScreen }) => {
+const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isReceiptScreen, validator }) => {
+    const handleNextButtonPress = () => {
+        if (validator){
+            // perform validation if a validator is provided
+            validationErrors = validator();
+
+            // if errors, display them, otherwise navigate to next screen
+            if (validationErrors){
+                console.log(validationErrors);
+            }
+            else {
+                navigation.navigate(nextScreen);
+            }
+        }
+        else {
+            // no validation necessary, just navigate
+            navigation.navigate(nextScreen);
+        }
+    };
+
     const renderBackButton = () => {
         if (prevScreen) {
             return (
@@ -16,7 +35,10 @@ const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isRece
     const renderNextButton = () => {
         if (nextScreen) {
             return (
-                <DinButton title="Next" pressHandler={() => navigation.navigate(nextScreen)} />
+                <DinButton 
+                    title="Next"
+                    pressHandler={handleNextButtonPress} 
+                />
             );
         }
     };

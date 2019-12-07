@@ -43,7 +43,7 @@ export const setSkierType = (segmentIndex, skierType) => {
     }
 };
 
-export const clearAllValues = (stuff) => {
+export const clearAllValues = () => {
     return {
         type: 'CLEAR_ALL_VALUES',
         payload: null
