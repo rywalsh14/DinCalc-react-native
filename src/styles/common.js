@@ -55,6 +55,7 @@ getSmallButtonRadius = () => {
 export const constants = {
     MAIN_COLOR: '#62bcfa',
     BACKGROUND_COLOR:'#fdf6e3',
+    ERROR_COLOR: '#e76056',
     FIELD_CHARACTER_WIDTH: getCharWidth(),
     FONT_SIZE: getFontSizes(),
     LARGE_BUTTON_PADDING: getLargeButtonPadding()
@@ -113,7 +114,7 @@ export const ROUND_BUTTON_STYLES = StyleSheet.create({
 
 export const ERROR_STYLES = StyleSheet.create({
     text: {
-        color: 'red',
+        color: constants.ERROR_COLOR,
         fontWeight: '700',
         fontSize: 16
     }

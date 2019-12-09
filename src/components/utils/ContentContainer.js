@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { SCREEN_STYLES } from '../../styles/common';
 import BackButton from './BackButton';
@@ -6,6 +6,8 @@ import DinButton from './DinButton';
 import ErrorMessage from './ErrorMessage';
 
 const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isReceiptScreen, validator }) => {
+    [errors, updateErrors] = useState({});
+
     const handleNextButtonPress = () => {
         if (validator){
             // perform validation if a validator is provided
@@ -13,6 +15,7 @@ const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isRece
 
             // if errors, display them, otherwise navigate to next screen
             if (validationErrors){
+                updateErrors(validationErrors);
                 console.log(validationErrors);
             }
             else {
@@ -45,7 +48,9 @@ const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isRece
     };
 
     const renderErrorMessages = () => {
-        const errorMessage = 'this is an error message';
+        // extract error message from error object, if applicable
+        const errorMessagesArray = Object.values(errors);
+        (errorMessagesArray.length > 0) ? [[errorMessage]] = errorMessagesArray : errorMessage = '';
         return (
             <ErrorMessage
                 style={styles.error}
