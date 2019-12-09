@@ -110,3 +110,11 @@ export const ROUND_BUTTON_STYLES = StyleSheet.create({
         overflow: 'hidden'
     }
 });
+
+export const ERROR_STYLES = StyleSheet.create({
+    text: {
+        color: 'red',
+        fontWeight: '700',
+        fontSize: 16
+    }
+});

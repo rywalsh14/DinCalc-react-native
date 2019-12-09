@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { SCREEN_STYLES } from '../../styles/common';
 import BackButton from './BackButton';
 import DinButton from './DinButton';
+import ErrorMessage from './ErrorMessage';
 
 const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isReceiptScreen, validator }) => {
     const handleNextButtonPress = () => {
@@ -43,6 +44,16 @@ const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isRece
         }
     };
 
+    const renderErrorMessages = () => {
+        const errorMessage = 'this is an error message';
+        return (
+            <ErrorMessage
+                style={styles.error}
+                errorMessage={errorMessage}
+            />
+        );
+    };
+
     let contentStyle = styles.contentView;
     let footerStyle = styles.footer;
     if (isReceiptScreen) {
@@ -56,6 +67,7 @@ const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isRece
             <View style={styles.backButtonView}>
                 {renderBackButton()}
             </View>
+            {!isReceiptScreen && renderErrorMessages()}
             <View style={contentStyle}>
                 {children}
             </View>
@@ -69,15 +81,19 @@ const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isRece
 
 const styles = StyleSheet.create({
     header: {
-        flex: 1
+        flex: 1,
     },
     backButtonView: {
         flex: 1,
         alignSelf: 'flex-start',
         marginLeft: 10,
     },
+    error: {
+        flex: 1,
+        justifyContent: 'center'
+    },
     contentView: {
-        flex: 6,
+        flex: 5,
         flexDirection: 'row',
         alignItems: 'center',
     },
