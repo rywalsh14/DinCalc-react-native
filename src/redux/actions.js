@@ -38,7 +38,7 @@ export const setSkierType = (segmentIndex, skierType) => {
         type: 'SET_SKIER_TYPE',
         payload: {
             index: segmentIndex,
-            skierType: skierType
+            value: skierType
         }
     }
 };

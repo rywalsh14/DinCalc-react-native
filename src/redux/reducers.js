@@ -78,7 +78,7 @@ const skierTypeReducer = (state, action) => {
     if (typeof state === 'undefined') {
         return {
             index: -1,
-            skierType: ''
+            value: ''
         };
     }
 
@@ -88,7 +88,7 @@ const skierTypeReducer = (state, action) => {
         case 'CLEAR_ALL_VALUES':
             return {
                 index: -1,
-                skierType: ''
+                value: ''
             };
         default:
             return state;
