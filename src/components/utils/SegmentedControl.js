@@ -5,7 +5,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const radius = 15;
 const borderWeight = 2;
 const defaultSegmentFontSize = 24;
-const secondaryColor = 'white';
+const defaultMainColor = 'black';
+const defaultSecondaryColor = 'white';
 
 const validate = (options) => {
     if (options === undefined) {
@@ -50,7 +51,7 @@ const Segment = ({ value, pressHandler, viewStyle, textStyle, index }) => {
     );
 };
 
-const SegmentedControl = ({ selectedIndex, options, onSegmentSelect, fontSize, color }) => {
+const SegmentedControl = ({ selectedIndex, options, onSegmentSelect, fontSize, mainColor, secondaryColor }) => {
     [selectedSegment, updateSelectedSegment] = useState(selectedIndex);
     validate(options);
 
@@ -60,7 +61,8 @@ const SegmentedControl = ({ selectedIndex, options, onSegmentSelect, fontSize, c
         onSegmentSelect(index, value);
     };
 
-    const mainColor = (color !== undefined) ? color : 'black';
+    const segmentMainColor = (mainColor !== undefined) ? mainColor : defaultMainColor;
+    const segmentSecondaryColor = (secondaryColor !== undefined) ? secondaryColor : defaultSecondaryColor;
     const segmentFontSize = (fontSize !== undefined) ? fontSize : defaultSegmentFontSize;
     const segmentWidth = calculateSegmentWidth(options, segmentFontSize);
 
@@ -68,21 +70,21 @@ const SegmentedControl = ({ selectedIndex, options, onSegmentSelect, fontSize, c
     const styles = StyleSheet.create({
         segmentView: {
             borderWidth: borderWeight,
-            borderColor: mainColor,
+            borderColor: segmentMainColor,
             paddingHorizontal: segmentFontSize/2
         },
         segmentText: {
-            color: mainColor,
+            color: segmentMainColor,
             fontSize: segmentFontSize,
             textAlign: 'center',
             minWidth: segmentWidth,
             fontWeight: '600'
         },
         selectedSegmentView: {
-            backgroundColor: mainColor
+            backgroundColor: segmentMainColor
         },
         selectedSegmentText: {
-            color: secondaryColor
+            color: segmentSecondaryColor
         }
     });
 

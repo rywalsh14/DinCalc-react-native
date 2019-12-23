@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { DETAIL_STYLES, constants } from '../../styles/common';
 import SegmentedControl from '../utils/SegmentedControl';
 
-const SkierTypeDetails = ({ skierType, onChangeSkierType, color }) => {
+const SkierTypeDetails = ({ skierType, onChangeSkierType, mainColor, secondaryColor }) => {
     return (
         <View>
             <Text style={DETAIL_STYLES.fieldLabel}>Skier Type:</Text>
@@ -13,7 +13,8 @@ const SkierTypeDetails = ({ skierType, onChangeSkierType, color }) => {
                     options={['I', 'II', 'III']}
                     onSegmentSelect={onChangeSkierType}
                     fontSize={constants.FONT_SIZE.segment}
-                    color={color}
+                    mainColor={mainColor}
+                    secondaryColor={secondaryColor}
                 />
             </View>
         </View>

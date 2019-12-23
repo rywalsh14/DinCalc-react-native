@@ -22,7 +22,8 @@ const SkierTypeScreen = ({ skierType, dispatch, navigation }) => {
                 <SkierTypeDetails
                     skierType={skierType}
                     onChangeSkierType={(newIndex, newValue) => dispatch(setSkierType(newIndex, newValue))}
-                    color={constants.MAIN_COLOR}
+                    mainColor={constants.MAIN_COLOR}
+                    secondaryColor={constants.BACKGROUND_COLOR}
                 />
             </ContentContainer>
         </ScreenContainer>
