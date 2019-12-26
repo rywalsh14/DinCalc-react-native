@@ -16,9 +16,9 @@ const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isRece
             // if errors, display them, otherwise navigate to next screen
             if (validationErrors){
                 updateErrors(validationErrors);
-                console.log(validationErrors);
             }
             else {
+                updateErrors({});
                 navigation.navigate(nextScreen);
             }
         }
