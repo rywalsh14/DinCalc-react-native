@@ -13,11 +13,12 @@ const ContentContainer = ({ prevScreen, nextScreen, navigation, children, isRece
             // perform validation if a validator is provided
             validationErrors = validator();
 
-            // if errors, display them, otherwise navigate to next screen
             if (validationErrors){
+                // if errors, display them & don't navigate
                 updateErrors(validationErrors);
             }
             else {
+                // clear errors and navigate
                 updateErrors({});
                 navigation.navigate(nextScreen);
             }
